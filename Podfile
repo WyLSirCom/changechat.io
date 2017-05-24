@@ -14,6 +14,7 @@ target 'ChangChat' do
   # pod 'XCGLogger'
   #pod 'HandyJSON'
   #pod 'Kingfisher'
+  pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
   target 'ChangChatTests' do
     inherit! :search_paths
     # Pods for testing

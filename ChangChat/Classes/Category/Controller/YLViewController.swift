@@ -21,7 +21,7 @@ class YLViewController: UIViewController {
         loadTitleView()
         
     }
-    
+
     func loadTitleView() {
         titleView = UIView()
         titleView?.backgroundColor = .blue
@@ -32,7 +32,6 @@ class YLViewController: UIViewController {
         }
         
         titleLabel = UILabel()
-//        titleLabel?.text = "标题abc"
         titleLabel?.font = RHFont
         titleLabel?.textColor = .white
         titleView!.addSubview(titleLabel!)

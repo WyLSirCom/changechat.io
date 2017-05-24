@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         EMClient.shared().initializeSDK(with: options)
         
         setupTabbar()
-        
+        login()
         return true
     }
     
@@ -32,6 +32,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabbar = YLTabBarViewController()
         self.window?.rootViewController = tabbar
         self.window?.makeKeyAndVisible()
+        
+    }
+    
+    func login() {
+        let loginvc = YLLoginViewController()
+        let loginNavi = YLNavigationController(rootViewController: loginvc)
+        
+        let rootvc = UIApplication.shared.keyWindow?.rootViewController
+        rootvc?.present(loginNavi, animated: true, completion: {
+            
+        })
         
     }
 }

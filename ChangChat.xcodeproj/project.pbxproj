@@ -24,6 +24,9 @@
 		3946859B1ED40CB10037CF2E /* YLEntertainmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3946859A1ED40CB10037CF2E /* YLEntertainmentViewController.swift */; };
 		3946859E1ED43BEE0037CF2E /* YLConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3946859D1ED43BEE0037CF2E /* YLConst.swift */; };
 		394685A01ED442F70037CF2E /* 腾祥睿黑简-W2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3946859F1ED442F70037CF2E /* 腾祥睿黑简-W2.ttf */; };
+		399C61EB1ED55588003E411F /* YLLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C61EA1ED55588003E411F /* YLLoginViewController.swift */; };
+		399C61ED1ED55EF1003E411F /* YLToolBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C61EC1ED55EF1003E411F /* YLToolBox.swift */; };
+		399C61EF1ED56F39003E411F /* YLRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C61EE1ED56F39003E411F /* YLRegisterViewController.swift */; };
 		7E3D602AA47ACCC89725DF69 /* Pods_ChangChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED66AFE036C38CE5FD83E610 /* Pods_ChangChatTests.framework */; };
 		9A6F72CDFB21E8DCAAA7A2C8 /* Pods_ChangChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BD468F33FB64A323C38A82 /* Pods_ChangChatUITests.framework */; };
 		B93AE416A57ED4C1D6FFB8CF /* Pods_ChangChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E63E58D0195774D8861D70D /* Pods_ChangChat.framework */; };
@@ -84,6 +87,9 @@
 		3946859A1ED40CB10037CF2E /* YLEntertainmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLEntertainmentViewController.swift; sourceTree = "<group>"; };
 		3946859D1ED43BEE0037CF2E /* YLConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLConst.swift; sourceTree = "<group>"; };
 		3946859F1ED442F70037CF2E /* 腾祥睿黑简-W2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "腾祥睿黑简-W2.ttf"; sourceTree = "<group>"; };
+		399C61EA1ED55588003E411F /* YLLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLLoginViewController.swift; sourceTree = "<group>"; };
+		399C61EC1ED55EF1003E411F /* YLToolBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLToolBox.swift; sourceTree = "<group>"; };
+		399C61EE1ED56F39003E411F /* YLRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLRegisterViewController.swift; sourceTree = "<group>"; };
 		45BD468F33FB64A323C38A82 /* Pods_ChangChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChangChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BB9D2A9723947820C15CE3 /* Pods-ChangChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChangChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChangChatUITests/Pods-ChangChatUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8E63E58D0195774D8861D70D /* Pods_ChangChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChangChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,6 +285,8 @@
 		394685811ED408C40037CF2E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				399C61EA1ED55588003E411F /* YLLoginViewController.swift */,
+				399C61EE1ED56F39003E411F /* YLRegisterViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -397,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				3946859D1ED43BEE0037CF2E /* YLConst.swift */,
+				399C61EC1ED55EF1003E411F /* YLToolBox.swift */,
 			);
 			path = Const;
 			sourceTree = "<group>";
@@ -710,9 +719,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3946859B1ED40CB10037CF2E /* YLEntertainmentViewController.swift in Sources */,
+				399C61EB1ED55588003E411F /* YLLoginViewController.swift in Sources */,
 				394685851ED408E80037CF2E /* YLViewController.swift in Sources */,
 				394685731ED400F90037CF2E /* ViewController.swift in Sources */,
 				394685721ED400F90037CF2E /* AppDelegate.swift in Sources */,
+				399C61ED1ED55EF1003E411F /* YLToolBox.swift in Sources */,
+				399C61EF1ED56F39003E411F /* YLRegisterViewController.swift in Sources */,
 				394685971ED40C620037CF2E /* YLChatViewController.swift in Sources */,
 				3946859E1ED43BEE0037CF2E /* YLConst.swift in Sources */,
 				394685891ED4092F0037CF2E /* YLNavigationController.swift in Sources */,

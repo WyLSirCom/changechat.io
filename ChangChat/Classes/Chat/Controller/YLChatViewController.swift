@@ -12,12 +12,7 @@ class YLChatViewController: YLViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
+        self.titleLabel?.text = "聊天"
     }
 
 }

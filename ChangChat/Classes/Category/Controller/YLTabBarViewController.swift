@@ -12,18 +12,16 @@ class YLTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let chat = setupUI(toptitle: "聊天", title: "聊天", image: "", select: "")
-        let contact = setupUI(toptitle: "联系人", title: "联系人", image: "", select: "")
-        let tainment = setupUI(toptitle: "娱乐", title: "娱乐", image: "", select: "")
+        let chat = setupUI(ViewController: YLChatViewController(), title: "聊天", image: "", select: "")
+        let contact = setupUI(ViewController: YLContactViewController(), title: "联系人", image: "", select: "")
+        let tainment = setupUI(ViewController: YLEntertainmentViewController(), title: "娱乐", image: "", select: "")
         self.viewControllers = [chat,contact,tainment]
     }
     
-    func setupUI(toptitle:String , title:String , image:String , select:String) -> YLNavigationController {
-        let vc = YLViewController()
+    func setupUI(ViewController:YLViewController , title:String , image:String , select:String) -> YLNavigationController {
+        let vc = ViewController
         let Navi = YLNavigationController(rootViewController: vc)
         let TabbarItem = UITabBarItem(title: title, image: UIImage(named: image), selectedImage: UIImage(named: select))
-//        vc.title = toptitle
-        vc.titleLabel?.text = toptitle
         Navi.navigationBar.isHidden = true
         Navi.tabBarItem = TabbarItem
         return Navi
