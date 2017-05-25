@@ -40,7 +40,7 @@ class YLRegisterViewController: YLViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.milliseconds(500)) {
             self.passwordTextFiled = SpringTextField()
-            self.passwordTextFiled?.backgroundColor = .red
+            self.passwordTextFiled?.backgroundColor = UIColor.hexStringToColor("00a4e1", alpha: 1.0)
             self.view.addSubview(self.passwordTextFiled!)
             self.passwordTextFiled!.snp.makeConstraints { (make) in
                 make.top.equalTo(self.userTextFiled!.snp.bottom).offset(25)
