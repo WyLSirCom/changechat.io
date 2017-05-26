@@ -27,6 +27,7 @@
 		399C61EB1ED55588003E411F /* YLLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C61EA1ED55588003E411F /* YLLoginViewController.swift */; };
 		399C61ED1ED55EF1003E411F /* YLToolBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C61EC1ED55EF1003E411F /* YLToolBox.swift */; };
 		399C61EF1ED56F39003E411F /* YLRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C61EE1ED56F39003E411F /* YLRegisterViewController.swift */; };
+		39A0131C1ED815DC003B25DF /* YLLoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A0131B1ED815DC003B25DF /* YLLoginTextField.swift */; };
 		7E3D602AA47ACCC89725DF69 /* Pods_ChangChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED66AFE036C38CE5FD83E610 /* Pods_ChangChatTests.framework */; };
 		9A6F72CDFB21E8DCAAA7A2C8 /* Pods_ChangChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BD468F33FB64A323C38A82 /* Pods_ChangChatUITests.framework */; };
 		B93AE416A57ED4C1D6FFB8CF /* Pods_ChangChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E63E58D0195774D8861D70D /* Pods_ChangChat.framework */; };
@@ -90,6 +91,7 @@
 		399C61EA1ED55588003E411F /* YLLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLLoginViewController.swift; sourceTree = "<group>"; };
 		399C61EC1ED55EF1003E411F /* YLToolBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLToolBox.swift; sourceTree = "<group>"; };
 		399C61EE1ED56F39003E411F /* YLRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLRegisterViewController.swift; sourceTree = "<group>"; };
+		39A0131B1ED815DC003B25DF /* YLLoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLLoginTextField.swift; sourceTree = "<group>"; };
 		45BD468F33FB64A323C38A82 /* Pods_ChangChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChangChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BB9D2A9723947820C15CE3 /* Pods-ChangChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChangChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChangChatUITests/Pods-ChangChatUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8E63E58D0195774D8861D70D /* Pods_ChangChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChangChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -301,6 +303,7 @@
 		394685831ED408C40037CF2E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				39A0131B1ED815DC003B25DF /* YLLoginTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -721,6 +724,7 @@
 				3946859B1ED40CB10037CF2E /* YLEntertainmentViewController.swift in Sources */,
 				399C61EB1ED55588003E411F /* YLLoginViewController.swift in Sources */,
 				394685851ED408E80037CF2E /* YLViewController.swift in Sources */,
+				39A0131C1ED815DC003B25DF /* YLLoginTextField.swift in Sources */,
 				394685731ED400F90037CF2E /* ViewController.swift in Sources */,
 				394685721ED400F90037CF2E /* AppDelegate.swift in Sources */,
 				399C61ED1ED55EF1003E411F /* YLToolBox.swift in Sources */,

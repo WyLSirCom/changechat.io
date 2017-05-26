@@ -11,8 +11,8 @@ import Spring
 
 class YLLoginViewController: YLViewController {
     
-    var userTextFiled : SpringTextField?
-    var passwordTextFiled : SpringTextField?
+    var userTextFiled : YLLoginTextField?
+    var passwordTextFiled : YLLoginTextField?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +29,8 @@ class YLLoginViewController: YLViewController {
     }
     
     func loadUI() {
-        userTextFiled = SpringTextField()
-        userTextFiled?.backgroundColor = .red
+        userTextFiled = YLLoginTextField()
+        userTextFiled?.setplaceholder(placeholder: "用户名")
         self.view.addSubview(userTextFiled!)
         userTextFiled!.snp.makeConstraints { (make) in
             make.top.equalTo(self.view).offset(100)
@@ -41,8 +41,8 @@ class YLLoginViewController: YLViewController {
         appear(view: userTextFiled!)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.milliseconds(500)) {
-            self.passwordTextFiled = SpringTextField()
-            self.passwordTextFiled?.backgroundColor = .red
+            self.passwordTextFiled = YLLoginTextField()
+            self.passwordTextFiled?.setplaceholder(placeholder: "密  码")
             self.view.addSubview(self.passwordTextFiled!)
             self.passwordTextFiled!.snp.makeConstraints { (make) in
                 make.top.equalTo(self.userTextFiled!.snp.bottom).offset(25)
@@ -53,9 +53,12 @@ class YLLoginViewController: YLViewController {
             self.appear(view: self.passwordTextFiled!)
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.milliseconds(1000)) { 
+        DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.milliseconds(1000)) {
+            let image = UIImage.creatImageWithHexColor(hexColor: "00a4e1", alpha: 1.0)
+            let highlightImage = UIImage.creatImageWithColor(color: randColor(r: 19.0, g: 146.0, b: 218.0, a: 1.0))
             let loginBtn = SpringButton(type: .custom)
-            loginBtn.backgroundColor = .red
+            loginBtn.setBackgroundImage(image, for: .normal)
+            loginBtn.setBackgroundImage(highlightImage, for: .highlighted)
             loginBtn.setTitle("login", for: .normal)
             self.view.addSubview(loginBtn)
             loginBtn.snp.makeConstraints { (make) in
@@ -64,14 +67,16 @@ class YLLoginViewController: YLViewController {
                 make.height.equalTo(self.passwordTextFiled!.snp.height)
                 make.centerX.equalTo(self.view)
             }
+            loginBtn.layer.cornerRadius = 5.0
+            loginBtn.layer.masksToBounds = true
             self.appearBtn(view: loginBtn)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.milliseconds(1500)) {
             let registerBtn = UIButton(type: .custom)
             registerBtn.setTitle("注册账号", for: .normal)
-            registerBtn.setTitleColor(.blue, for: .normal)
-            registerBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+            registerBtn.setTitleColor(UIColor.hexStringToColor("00a4e1", alpha: 1.0), for: .normal)
+            registerBtn.titleLabel?.font = UIFont(name: "Tensentype-RuiHeiJ-W2", size: 12.0)
             self.view.addSubview(registerBtn)
             registerBtn.addTarget(self, action: #selector(self.registerBtnClick(sender:)), for: .touchUpInside)
             registerBtn.snp.makeConstraints { (make) in
@@ -79,12 +84,10 @@ class YLLoginViewController: YLViewController {
                 make.right.equalTo(self.passwordTextFiled!.snp.right)
             }
         }
-        
-        
     }
     
     //出场动画
-    func appear(view : SpringTextField) {
+    func appear(view : SpringView) {
         view.animation = "squeezeRight"
         view.curve = "easeIn"
         view.force = 1.0

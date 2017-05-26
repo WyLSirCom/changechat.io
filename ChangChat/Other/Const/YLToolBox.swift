@@ -9,8 +9,18 @@
 import UIKit
 import Spring
 
+
+
+// MARK: - DispatchQueue的分类
 public extension DispatchQueue {
+    
     private static var _onceTracker = [String]()
+    
+    /// block代码只执行一次
+    ///
+    /// - Parameters:
+    ///   - token: 对于执行的代码传递一个唯一标示，如果_onceTracker数组内没有token会执行一次，然后添加进_onceTracker。
+    ///   - block: 只执行一次的代码
     public class func once(token: String, block:() -> Void) {
         objc_sync_enter(self)
         defer { objc_sync_exit(self) }
@@ -23,9 +33,16 @@ public extension DispatchQueue {
 }
 
 
+// MARK: - UIColor的分类
 public extension UIColor {
+    
+    /// 根据传入的16进制颜色字符串转成UIColor
+    ///
+    /// - Parameters:
+    ///   - colorStr: 16进制颜色字符串
+    ///   - alpha: 透明度
+    /// - Returns: 转换得到的UIColor
     class func hexStringToColor(_ colorStr:String,alpha : CGFloat) -> UIColor {
-        
         var color = UIColor.red
         var cStr : String = colorStr.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
         
@@ -54,6 +71,38 @@ public extension UIColor {
         color = UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: alpha)
         
         return color
+    }
+}
+
+
+// MARK: - UIImage的分类
+public extension UIImage {
+    
+    /// 根据传入的颜色生成图片
+    ///
+    /// - Parameter color: 要生成图片的颜色
+    /// - Returns: 生成的图片
+    class func creatImageWithColor(color : UIColor) -> UIImage {
+        let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(color.cgColor)
+        context?.fill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
+    
+    /// 根据传入的16进制颜色字符串生成图片
+    ///
+    /// - Parameters:
+    ///   - hexColor: 16进制颜色字符串
+    ///   - alpha: 透明度
+    /// - Returns: 生成的图片
+    class func creatImageWithHexColor(hexColor : String, alpha : CGFloat) -> UIImage {
+        let color = UIColor.hexStringToColor(hexColor, alpha: alpha)
+        let image = UIImage.creatImageWithColor(color: color)
+        return image
     }
 }
 
