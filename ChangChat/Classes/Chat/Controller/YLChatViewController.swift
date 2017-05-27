@@ -8,8 +8,13 @@
 
 import UIKit
 
-class YLChatViewController: YLViewController, UITableViewDataSource, UITableViewDelegate {
 
+
+
+let leftCell = "leftCell"
+
+class YLChatViewController: YLViewController, UITableViewDataSource, UITableViewDelegate {
+    
     //懒加载格式
     //lazy var 变量: 类型 = { 创建变量代码(相当于闭包) }()
     lazy var tableView :UITableView = {
@@ -17,6 +22,9 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
         let tb = UITableView()
         tb.delegate = self
         tb.dataSource = self
+        tb.register(YLLeftTextTableViewCell.self, forCellReuseIdentifier: leftCell)
+        tb.rowHeight = UITableViewAutomaticDimension
+        tb.estimatedRowHeight = 100
         return tb
     }()
     
@@ -46,12 +54,9 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
         return 50;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView .dequeueReusableCell(withIdentifier: "cell")
-        if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-        }
-        cell?.textLabel?.text = "我是大王"
-        return cell!
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: leftCell, for: indexPath)
+        return cell
     }
     
 }

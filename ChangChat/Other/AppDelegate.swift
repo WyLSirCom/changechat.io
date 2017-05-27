@@ -23,9 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let options = EMOptions(appkey: "1144170523115844#changchat")
         EMClient.shared().initializeSDK(with: options)
         
+        //打印的设置
         setLog()
+        
+        //加载tabbar
         setupTabbar()
-        login()
+        
+        //loginViewController
+//        login()
         return true
     }
     
