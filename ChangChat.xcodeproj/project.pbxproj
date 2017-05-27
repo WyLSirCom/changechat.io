@@ -24,6 +24,7 @@
 		3946859B1ED40CB10037CF2E /* YLEntertainmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3946859A1ED40CB10037CF2E /* YLEntertainmentViewController.swift */; };
 		3946859E1ED43BEE0037CF2E /* YLConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3946859D1ED43BEE0037CF2E /* YLConst.swift */; };
 		394685A01ED442F70037CF2E /* 腾祥睿黑简-W2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3946859F1ED442F70037CF2E /* 腾祥睿黑简-W2.ttf */; };
+		395DE2C51ED924A80009F3CF /* YLLeftTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395DE2C41ED924A80009F3CF /* YLLeftTextTableViewCell.swift */; };
 		399C61EB1ED55588003E411F /* YLLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C61EA1ED55588003E411F /* YLLoginViewController.swift */; };
 		399C61ED1ED55EF1003E411F /* YLToolBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C61EC1ED55EF1003E411F /* YLToolBox.swift */; };
 		399C61EF1ED56F39003E411F /* YLRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C61EE1ED56F39003E411F /* YLRegisterViewController.swift */; };
@@ -88,6 +89,7 @@
 		3946859A1ED40CB10037CF2E /* YLEntertainmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLEntertainmentViewController.swift; sourceTree = "<group>"; };
 		3946859D1ED43BEE0037CF2E /* YLConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLConst.swift; sourceTree = "<group>"; };
 		3946859F1ED442F70037CF2E /* 腾祥睿黑简-W2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "腾祥睿黑简-W2.ttf"; sourceTree = "<group>"; };
+		395DE2C41ED924A80009F3CF /* YLLeftTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLLeftTextTableViewCell.swift; sourceTree = "<group>"; };
 		399C61EA1ED55588003E411F /* YLLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLLoginViewController.swift; sourceTree = "<group>"; };
 		399C61EC1ED55EF1003E411F /* YLToolBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLToolBox.swift; sourceTree = "<group>"; };
 		399C61EE1ED56F39003E411F /* YLRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLRegisterViewController.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 		3946858D1ED409970037CF2E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				395DE2C41ED924A80009F3CF /* YLLeftTextTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -733,6 +736,7 @@
 				3946859E1ED43BEE0037CF2E /* YLConst.swift in Sources */,
 				394685891ED4092F0037CF2E /* YLNavigationController.swift in Sources */,
 				394685991ED40C880037CF2E /* YLContactViewController.swift in Sources */,
+				395DE2C51ED924A80009F3CF /* YLLeftTextTableViewCell.swift in Sources */,
 				394685871ED409160037CF2E /* YLTabBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

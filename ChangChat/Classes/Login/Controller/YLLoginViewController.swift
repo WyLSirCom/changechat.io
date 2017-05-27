@@ -70,6 +70,7 @@ class YLLoginViewController: YLViewController {
             loginBtn.layer.cornerRadius = 5.0
             loginBtn.layer.masksToBounds = true
             self.appearBtn(view: loginBtn)
+            loginBtn.addTarget(self, action: #selector(self.loginBtnClick(sender:)), for: .touchUpInside)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.milliseconds(1500)) {
@@ -103,8 +104,22 @@ class YLLoginViewController: YLViewController {
     }
     
     func registerBtnClick(sender:SpringButton) {
+        log.debug("clickRegister Btn")
         let registerVC = YLRegisterViewController()
         self.navigationController?.pushViewController(registerVC, animated: true)
+    }
+    
+    deinit {
+        log.debug("loginViewController 释放")
+    }
+    
+    // MARK: Private
+    
+    func loginBtnClick(sender : SpringButton) {
+        log.debug("login success")
+        self .dismiss(animated: true) { 
+            
+        }
     }
 
 }

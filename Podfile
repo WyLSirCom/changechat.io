@@ -11,7 +11,7 @@ target 'ChangChat' do
   # pod 'ReactiveCocoa', :git => 'https://github.com/ReactiveCocoa/ReactiveCocoa.git'
   #pod 'SwiftyJSON'
   #pod 'Alamofire'
-  # pod 'XCGLogger'
+  pod 'XCGLogger'
   #pod 'HandyJSON'
   #pod 'Kingfisher'
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'

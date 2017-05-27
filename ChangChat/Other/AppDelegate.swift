@@ -8,6 +8,9 @@
 
 import UIKit
 import HyphenateLite
+import XCGLogger
+
+let log = XCGLogger.default
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,9 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let options = EMOptions(appkey: "1144170523115844#changchat")
         EMClient.shared().initializeSDK(with: options)
         
+        setLog()
         setupTabbar()
         login()
         return true
+    }
+    
+    func setLog() {
+        let cachePath = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+        let logurl = cachePath?.appendingPathComponent("log.txt")
+        log.setup(level: .debug, showLogIdentifier: true, showFunctionName: true, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, showDate: true, writeToFile: logurl, fileLevel: .debug)
     }
     
     func setupTabbar() {

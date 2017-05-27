@@ -1,10 +1,14 @@
 PODS:
   - SnapKit (3.2.0)
   - Spring (1.0.3)
+  - XCGLogger (4.0.0):
+    - XCGLogger/Core (= 4.0.0)
+  - XCGLogger/Core (4.0.0)
 
 DEPENDENCIES:
   - SnapKit (~> 3.2.0)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
+  - XCGLogger
 
 EXTERNAL SOURCES:
   Spring:
@@ -19,7 +23,8 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
+  XCGLogger: 38063ea89b4c8b23232d18efd2e12eb0005f3ea4
 
-PODFILE CHECKSUM: 2747e1200bb21549660c24bec480728499f6fdb3
+PODFILE CHECKSUM: a2eab3c3f51d5eecfdcc36542045b611b58c3c29
 
 COCOAPODS: 1.2.0
