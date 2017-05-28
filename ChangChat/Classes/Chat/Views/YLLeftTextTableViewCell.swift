@@ -54,6 +54,8 @@ class YLLeftTextTableViewCell: UITableViewCell {
     }
     
     
+    
+    
     func loadUI() {
         timelabel = UILabel()
         timelabel?.backgroundColor = .orange
