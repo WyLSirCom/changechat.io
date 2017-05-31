@@ -56,7 +56,7 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
     
     func testMessage() {
         let message = YLMessageModel()
-        message.contentText = "hadjahhfjksfgsgsdfgasfgsfgakjfkajfksjfkdjfklajfkjakdjfklfjakdjskljfklajdskfjakjdfadfdfasdfdfgfadhf"
+        message.contentText = "hadja啊大煞风景卡回到家客服回答时间开始凤凰健康阿富汗将卡的恢复健康后hh"
         message.from = .Other
         message.ishiddenTimelabel = false
         message.time = "12345879"

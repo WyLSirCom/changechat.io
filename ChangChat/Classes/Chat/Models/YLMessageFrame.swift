@@ -51,7 +51,7 @@ class YLMessageFrame: NSObject {
             } else {
                 textX = (iconF?.maxX)! + 10
             }
-            textF = CGRect(origin: CGPoint(x: textX, y: textY), size: textRealSize)
+            textF = CGRect(origin: CGPoint(x: textX, y: textY), size: textBtnSize)
             
             cellHeight = max(iconF!.maxY, textF!.maxY)
             
