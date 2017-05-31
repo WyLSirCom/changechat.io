@@ -8,8 +8,14 @@
 
 import UIKit
 
+enum YLMessageFrom {
+    case Me
+    case Other
+}
 class YLMessageModel: NSObject {
     var ishiddenTimelabel : Bool?
-    
+    var contentText : String?
+    var time : String?
+    var from : YLMessageFrom?
 
 }

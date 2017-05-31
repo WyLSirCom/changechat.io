@@ -106,3 +106,13 @@ public extension UIImage {
     }
 }
 
+
+// MARK: - NSString 的分类
+public extension NSString {
+    func sizeWithFont(font : UIFont , maxSize : CGSize) -> CGSize {
+        let attrs = [NSFontAttributeName : font]
+        return self.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: attrs, context: nil).size
+        
+    }
+}
+

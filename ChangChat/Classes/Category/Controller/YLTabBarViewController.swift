@@ -12,7 +12,7 @@ class YLTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let chat = setupUI(ViewController: YLChatViewController(), title: "聊天", image: "", select: "")
+        let chat = setupUI(ViewController: YLChatListViewController(), title: "聊天", image: "", select: "")
         let contact = setupUI(ViewController: YLContactViewController(), title: "联系人", image: "", select: "")
         let tainment = setupUI(ViewController: YLEntertainmentViewController(), title: "娱乐", image: "", select: "")
         self.viewControllers = [chat,contact,tainment]

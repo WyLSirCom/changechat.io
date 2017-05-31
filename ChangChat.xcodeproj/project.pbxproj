@@ -24,7 +24,6 @@
 		3946859B1ED40CB10037CF2E /* YLEntertainmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3946859A1ED40CB10037CF2E /* YLEntertainmentViewController.swift */; };
 		3946859E1ED43BEE0037CF2E /* YLConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3946859D1ED43BEE0037CF2E /* YLConst.swift */; };
 		394685A01ED442F70037CF2E /* 腾祥睿黑简-W2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3946859F1ED442F70037CF2E /* 腾祥睿黑简-W2.ttf */; };
-		395DE2C51ED924A80009F3CF /* YLLeftTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395DE2C41ED924A80009F3CF /* YLLeftTextTableViewCell.swift */; };
 		395DE2C71ED97C540009F3CF /* YLMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395DE2C61ED97C540009F3CF /* YLMessageModel.swift */; };
 		399C61EB1ED55588003E411F /* YLLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C61EA1ED55588003E411F /* YLLoginViewController.swift */; };
 		399C61ED1ED55EF1003E411F /* YLToolBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C61EC1ED55EF1003E411F /* YLToolBox.swift */; };
@@ -33,6 +32,10 @@
 		7E3D602AA47ACCC89725DF69 /* Pods_ChangChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED66AFE036C38CE5FD83E610 /* Pods_ChangChatTests.framework */; };
 		9A6F72CDFB21E8DCAAA7A2C8 /* Pods_ChangChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BD468F33FB64A323C38A82 /* Pods_ChangChatUITests.framework */; };
 		B93AE416A57ED4C1D6FFB8CF /* Pods_ChangChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E63E58D0195774D8861D70D /* Pods_ChangChat.framework */; };
+		DF7255D31EDE936600A61503 /* YLChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7255D21EDE936600A61503 /* YLChatListViewController.swift */; };
+		DF7255D51EDE94CF00A61503 /* YLChatDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7255D41EDE94CF00A61503 /* YLChatDetailTableViewCell.swift */; };
+		DF7255D71EDEAC7B00A61503 /* YLMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7255D61EDEAC7B00A61503 /* YLMessageTableViewCell.swift */; };
+		DF7255D91EDEAE8D00A61503 /* YLMessageFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7255D81EDEAE8D00A61503 /* YLMessageFrame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,7 +93,6 @@
 		3946859A1ED40CB10037CF2E /* YLEntertainmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLEntertainmentViewController.swift; sourceTree = "<group>"; };
 		3946859D1ED43BEE0037CF2E /* YLConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLConst.swift; sourceTree = "<group>"; };
 		3946859F1ED442F70037CF2E /* 腾祥睿黑简-W2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "腾祥睿黑简-W2.ttf"; sourceTree = "<group>"; };
-		395DE2C41ED924A80009F3CF /* YLLeftTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLLeftTextTableViewCell.swift; sourceTree = "<group>"; };
 		395DE2C61ED97C540009F3CF /* YLMessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLMessageModel.swift; sourceTree = "<group>"; };
 		399C61EA1ED55588003E411F /* YLLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLLoginViewController.swift; sourceTree = "<group>"; };
 		399C61EC1ED55EF1003E411F /* YLToolBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLToolBox.swift; sourceTree = "<group>"; };
@@ -103,6 +105,10 @@
 		9674E4E7960996A6300E572F /* Pods-ChangChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChangChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChangChatTests/Pods-ChangChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		9E969F08F4531FD936E3762C /* Pods-ChangChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChangChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChangChat/Pods-ChangChat.release.xcconfig"; sourceTree = "<group>"; };
 		B358B15DE35EB389D998E92F /* Pods-ChangChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChangChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChangChatTests/Pods-ChangChatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DF7255D21EDE936600A61503 /* YLChatListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLChatListViewController.swift; sourceTree = "<group>"; };
+		DF7255D41EDE94CF00A61503 /* YLChatDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLChatDetailTableViewCell.swift; sourceTree = "<group>"; };
+		DF7255D61EDEAC7B00A61503 /* YLMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLMessageTableViewCell.swift; sourceTree = "<group>"; };
+		DF7255D81EDEAE8D00A61503 /* YLMessageFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLMessageFrame.swift; sourceTree = "<group>"; };
 		ED66AFE036C38CE5FD83E610 /* Pods_ChangChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChangChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -326,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				394685961ED40C620037CF2E /* YLChatViewController.swift */,
+				DF7255D21EDE936600A61503 /* YLChatListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -334,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				395DE2C61ED97C540009F3CF /* YLMessageModel.swift */,
+				DF7255D81EDEAE8D00A61503 /* YLMessageFrame.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -341,7 +349,8 @@
 		3946858D1ED409970037CF2E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				395DE2C41ED924A80009F3CF /* YLLeftTextTableViewCell.swift */,
+				DF7255D41EDE94CF00A61503 /* YLChatDetailTableViewCell.swift */,
+				DF7255D61EDEAC7B00A61503 /* YLMessageTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -729,18 +738,21 @@
 			files = (
 				3946859B1ED40CB10037CF2E /* YLEntertainmentViewController.swift in Sources */,
 				399C61EB1ED55588003E411F /* YLLoginViewController.swift in Sources */,
+				DF7255D51EDE94CF00A61503 /* YLChatDetailTableViewCell.swift in Sources */,
 				394685851ED408E80037CF2E /* YLViewController.swift in Sources */,
 				395DE2C71ED97C540009F3CF /* YLMessageModel.swift in Sources */,
 				39A0131C1ED815DC003B25DF /* YLLoginTextField.swift in Sources */,
 				394685731ED400F90037CF2E /* ViewController.swift in Sources */,
+				DF7255D91EDEAE8D00A61503 /* YLMessageFrame.swift in Sources */,
 				394685721ED400F90037CF2E /* AppDelegate.swift in Sources */,
 				399C61ED1ED55EF1003E411F /* YLToolBox.swift in Sources */,
 				399C61EF1ED56F39003E411F /* YLRegisterViewController.swift in Sources */,
+				DF7255D71EDEAC7B00A61503 /* YLMessageTableViewCell.swift in Sources */,
+				DF7255D31EDE936600A61503 /* YLChatListViewController.swift in Sources */,
 				394685971ED40C620037CF2E /* YLChatViewController.swift in Sources */,
 				3946859E1ED43BEE0037CF2E /* YLConst.swift in Sources */,
 				394685891ED4092F0037CF2E /* YLNavigationController.swift in Sources */,
 				394685991ED40C880037CF2E /* YLContactViewController.swift in Sources */,
-				395DE2C51ED924A80009F3CF /* YLLeftTextTableViewCell.swift in Sources */,
 				394685871ED409160037CF2E /* YLTabBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
