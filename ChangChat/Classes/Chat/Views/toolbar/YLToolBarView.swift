@@ -11,7 +11,7 @@ import UIKit
 class YLToolBarView: UIView,UITextViewDelegate {
 
     var moreview : YLMoreView?
-    
+    let textView = UITextView()
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = randColor(r: 243, g: 240, b: 241, a: 1.0)
@@ -53,7 +53,6 @@ class YLToolBarView: UIView,UITextViewDelegate {
         }
         emojiBtn.addTarget(self, action: #selector(emojiBtnClick(sender:)), for: .touchUpInside)
         
-        let textView = UITextView()
         textView.delegate = self
         textView.font = UIFont.systemFont(ofSize: 15)
         textView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
@@ -111,13 +110,16 @@ class YLToolBarView: UIView,UITextViewDelegate {
     }
     
     func moreBtnClick(sender : UIButton) {
-        moreview = YLMoreView(frame: CGRect(x: 0, y: 500, width: ScreenWidth, height: ScreenHeight - 500))
+        moreview = YLMoreView(frame: CGRect(x: 0, y: 40, width: ScreenWidth, height: 200))
 //        self.superview?.addSubview(self.moreview!)
-        self.addSubview(self.moreview!)
-        transition(type: "push", subtype: kCATransitionFromTop, view: moreview!)
-        UIView.animate(withDuration: 0.5) {
+//        self.addSubview(self.moreview!)
+//        transition(type: "push", subtype: kCATransitionFromTop, view: moreview!)
+        UIView.animate(withDuration: 0.25) {
+            self.textView.snp.updateConstraints({ (make) in
+                make.bottom.equalTo(-190)
+            })
             self.snp.updateConstraints { (make) in
-                make.bottom.equalTo(500-ScreenHeight)
+                make.height.equalTo(240)
             }
             self.superview?.layoutIfNeeded()
         }
