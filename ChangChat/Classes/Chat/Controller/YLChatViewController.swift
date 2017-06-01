@@ -55,7 +55,7 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
         self.view.addSubview(chatView)
         chatView.snp.makeConstraints { (make) in
             make.left.right.bottom.equalTo(0)
-            make.height.equalTo(50)
+            make.height.equalTo(54)
         }
         
         self.view.addSubview(tableView)
@@ -118,7 +118,7 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        self.view.endEditing(true)
+        self.view.endEditing(true)
     }
     
 }

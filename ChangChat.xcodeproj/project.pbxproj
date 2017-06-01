@@ -37,6 +37,7 @@
 		DF7255D71EDEAC7B00A61503 /* YLMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7255D61EDEAC7B00A61503 /* YLMessageTableViewCell.swift */; };
 		DF7255D91EDEAE8D00A61503 /* YLMessageFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7255D81EDEAE8D00A61503 /* YLMessageFrame.swift */; };
 		DF7255DC1EDFD50700A61503 /* YLToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7255DB1EDFD50700A61503 /* YLToolBarView.swift */; };
+		DF7255DE1EDFF44800A61503 /* YLMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7255DD1EDFF44800A61503 /* YLMoreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		DF7255D61EDEAC7B00A61503 /* YLMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLMessageTableViewCell.swift; sourceTree = "<group>"; };
 		DF7255D81EDEAE8D00A61503 /* YLMessageFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLMessageFrame.swift; sourceTree = "<group>"; };
 		DF7255DB1EDFD50700A61503 /* YLToolBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLToolBarView.swift; sourceTree = "<group>"; };
+		DF7255DD1EDFF44800A61503 /* YLMoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLMoreView.swift; sourceTree = "<group>"; };
 		ED66AFE036C38CE5FD83E610 /* Pods_ChangChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChangChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -445,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				DF7255DB1EDFD50700A61503 /* YLToolBarView.swift */,
+				DF7255DD1EDFF44800A61503 /* YLMoreView.swift */,
 			);
 			path = toolbar;
 			sourceTree = "<group>";
@@ -749,6 +752,7 @@
 			files = (
 				3946859B1ED40CB10037CF2E /* YLEntertainmentViewController.swift in Sources */,
 				399C61EB1ED55588003E411F /* YLLoginViewController.swift in Sources */,
+				DF7255DE1EDFF44800A61503 /* YLMoreView.swift in Sources */,
 				DF7255D51EDE94CF00A61503 /* YLChatDetailTableViewCell.swift in Sources */,
 				394685851ED408E80037CF2E /* YLViewController.swift in Sources */,
 				395DE2C71ED97C540009F3CF /* YLMessageModel.swift in Sources */,
