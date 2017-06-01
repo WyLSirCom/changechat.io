@@ -30,25 +30,54 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
         let arr = Array<YLMessageFrame>()
         return arr
     }()
+    let chatView = YLToolBarView()//输入框的view
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.titleLabel?.text = "聊天"
+        addNoti()
         loadUI()
         
+        //测试
         for _ in 0 ... 10 {
             testMessage()
         }
         tableView.reloadData()
+        //完成
+    }
+    
+    func addNoti() {
+        NotificationCenter.default.addObserver(self, selector: #selector(textViewFrameChange(noti:)), name: .UIKeyboardWillChangeFrame, object: nil)
     }
     
     func loadUI() {
+        
+        self.view.addSubview(chatView)
+        chatView.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalTo(0)
+            make.height.equalTo(50)
+        }
+        
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.top.equalTo(self.titleView!.snp.bottom).offset(0)
             make.left.right.equalTo(0)
-            make.bottom.equalTo(0)
+            make.bottom.equalTo(chatView.snp.top)
             
+        }
+    }
+    
+    func textViewFrameChange(noti:Notification) {
+        log.debug(noti.userInfo)
+        let frame = noti.userInfo?["UIKeyboardFrameEndUserInfoKey"] as! CGRect
+        let duration = noti.userInfo?["UIKeyboardAnimationDurationUserInfoKey"] as! CGFloat
+        
+        UIView.animate(withDuration: TimeInterval(duration)) { 
+            let hei = frame.origin.y
+            self.chatView.snp.updateConstraints { (make) in
+                make.bottom.equalTo(hei - ScreenHeight)
+            }
+            self.view.layoutIfNeeded()
         }
     }
     
@@ -86,6 +115,10 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let frame = datas[indexPath.row]
         return frame.cellHeight!
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        self.view.endEditing(true)
     }
     
 }
