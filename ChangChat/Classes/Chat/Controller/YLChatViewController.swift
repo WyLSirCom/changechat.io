@@ -35,7 +35,6 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.titleLabel?.text = "聊天"
-        addNoti()
         loadUI()
         
         //测试
@@ -44,10 +43,6 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
         }
         tableView.reloadData()
         //完成
-    }
-    
-    func addNoti() {
-        NotificationCenter.default.addObserver(self, selector: #selector(textViewFrameChange(noti:)), name: .UIKeyboardWillChangeFrame, object: nil)
     }
     
     func loadUI() {
@@ -64,20 +59,6 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
             make.left.right.equalTo(0)
             make.bottom.equalTo(chatView.snp.top)
             
-        }
-    }
-    
-    func textViewFrameChange(noti:Notification) {
-        log.debug(noti.userInfo)
-        let frame = noti.userInfo?["UIKeyboardFrameEndUserInfoKey"] as! CGRect
-        let duration = noti.userInfo?["UIKeyboardAnimationDurationUserInfoKey"] as! CGFloat
-        
-        UIView.animate(withDuration: TimeInterval(duration)) { 
-            let hei = frame.origin.y
-            self.chatView.snp.updateConstraints { (make) in
-                make.bottom.equalTo(hei - ScreenHeight)
-            }
-            self.view.layoutIfNeeded()
         }
     }
     
@@ -118,7 +99,7 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.view.endEditing(true)
+//        self.view.endEditing(true)
     }
     
 }
