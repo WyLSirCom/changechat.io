@@ -38,9 +38,6 @@ class YLToolBarView: UIView,UITextViewDelegate {
             self.snp.updateConstraints { (make) in
                 make.height.equalTo(ScreenHeight - hei + topFrame.size.height)
             }
-//            self.topView.snp.updateConstraints({ (make) in
-//                make.bottom.equalTo(hei - ScreenHeight)
-//            })
             self.superview?.layoutIfNeeded()
         }
     }
@@ -92,9 +89,18 @@ class YLToolBarView: UIView,UITextViewDelegate {
             make.left.equalTo(talkBtn.snp.right).offset(10)
             make.top.equalTo(10)
             make.bottom.equalTo(-10)
-//            make.height.equalTo(34)
             make.right.equalTo(emojiBtn.snp.left).offset(-10)
         }
+        textView.layer.cornerRadius = 3.0
+        textView.layer.masksToBounds = true
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        log.debug(text)
+        if text == "\n" {
+            return false
+        }
+        return true
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -146,11 +152,18 @@ class YLToolBarView: UIView,UITextViewDelegate {
     }
     
     func moreBtnClick(sender : UIButton) {
-        moreview = YLMoreView(frame: CGRect(x: 0, y: 40, width: ScreenWidth, height: 200))
+        moreview = YLMoreView()
+        self.addSubview(moreview!)
+        moreview?.snp.makeConstraints({ (make) in
+            make.left.right.bottom.equalTo(0)
+            make.top.equalTo(self.topView.snp.bottom)
+        })
+        self.layoutIfNeeded()
         self.textView.resignFirstResponder()
+        let topFrame = topView.frame;
         UIView.animate(withDuration: 0.25) {
             self.snp.updateConstraints({ (make) in
-                make.height.equalTo(200)
+                make.height.equalTo(200 + topFrame.size.height)
             })
             self.superview?.layoutIfNeeded()
         }
