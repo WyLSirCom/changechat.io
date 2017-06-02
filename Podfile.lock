@@ -1,4 +1,5 @@
 PODS:
+  - HandyJSON (1.6.1)
   - SnapKit (3.2.0)
   - Spring (1.0.3)
   - XCGLogger (4.0.0):
@@ -6,6 +7,7 @@ PODS:
   - XCGLogger/Core (4.0.0)
 
 DEPENDENCIES:
+  - HandyJSON
   - SnapKit (~> 3.2.0)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
   - XCGLogger
@@ -21,10 +23,11 @@ CHECKOUT OPTIONS:
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
+  HandyJSON: dcc98115467462a4749db81bc8a9052607600bdf
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   XCGLogger: 38063ea89b4c8b23232d18efd2e12eb0005f3ea4
 
-PODFILE CHECKSUM: a2eab3c3f51d5eecfdcc36542045b611b58c3c29
+PODFILE CHECKSUM: 08c238f0ff7b950e650336e4965497a96d30c2dc
 
 COCOAPODS: 1.2.0

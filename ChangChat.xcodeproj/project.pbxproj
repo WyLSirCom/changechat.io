@@ -38,6 +38,9 @@
 		DF7255D91EDEAE8D00A61503 /* YLMessageFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7255D81EDEAE8D00A61503 /* YLMessageFrame.swift */; };
 		DF7255DC1EDFD50700A61503 /* YLToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7255DB1EDFD50700A61503 /* YLToolBarView.swift */; };
 		DF7255DE1EDFF44800A61503 /* YLMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7255DD1EDFF44800A61503 /* YLMoreView.swift */; };
+		DF7255E11EE1635000A61503 /* NormalImage.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF7255DF1EE1635000A61503 /* NormalImage.plist */; };
+		DF7255E21EE1635000A61503 /* SystemEmoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF7255E01EE1635000A61503 /* SystemEmoji.plist */; };
+		DF7255E41EE1640000A61503 /* YLEmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7255E31EE1640000A61503 /* YLEmojiView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +116,9 @@
 		DF7255D81EDEAE8D00A61503 /* YLMessageFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLMessageFrame.swift; sourceTree = "<group>"; };
 		DF7255DB1EDFD50700A61503 /* YLToolBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLToolBarView.swift; sourceTree = "<group>"; };
 		DF7255DD1EDFF44800A61503 /* YLMoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLMoreView.swift; sourceTree = "<group>"; };
+		DF7255DF1EE1635000A61503 /* NormalImage.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NormalImage.plist; sourceTree = "<group>"; };
+		DF7255E01EE1635000A61503 /* SystemEmoji.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SystemEmoji.plist; sourceTree = "<group>"; };
+		DF7255E31EE1640000A61503 /* YLEmojiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLEmojiView.swift; sourceTree = "<group>"; };
 		ED66AFE036C38CE5FD83E610 /* Pods_ChangChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChangChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -232,6 +238,8 @@
 		394685701ED400F90037CF2E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				DF7255DF1EE1635000A61503 /* NormalImage.plist */,
+				DF7255E01EE1635000A61503 /* SystemEmoji.plist */,
 				3946859F1ED442F70037CF2E /* 腾祥睿黑简-W2.ttf */,
 				394685711ED400F90037CF2E /* Assets.xcassets */,
 			);
@@ -448,6 +456,7 @@
 			children = (
 				DF7255DB1EDFD50700A61503 /* YLToolBarView.swift */,
 				DF7255DD1EDFF44800A61503 /* YLMoreView.swift */,
+				DF7255E31EE1640000A61503 /* YLEmojiView.swift */,
 			);
 			path = toolbar;
 			sourceTree = "<group>";
@@ -584,10 +593,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF7255E21EE1635000A61503 /* SystemEmoji.plist in Resources */,
 				394685481ED3FCE40037CF2E /* LaunchScreen.storyboard in Resources */,
 				394685A01ED442F70037CF2E /* 腾祥睿黑简-W2.ttf in Resources */,
 				394685741ED400F90037CF2E /* Assets.xcassets in Resources */,
 				394685431ED3FCE40037CF2E /* Main.storyboard in Resources */,
+				DF7255E11EE1635000A61503 /* NormalImage.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,6 +761,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF7255E41EE1640000A61503 /* YLEmojiView.swift in Sources */,
 				3946859B1ED40CB10037CF2E /* YLEntertainmentViewController.swift in Sources */,
 				399C61EB1ED55588003E411F /* YLLoginViewController.swift in Sources */,
 				DF7255DE1EDFF44800A61503 /* YLMoreView.swift in Sources */,
