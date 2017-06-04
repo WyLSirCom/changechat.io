@@ -8,12 +8,19 @@
 
 import UIKit
 
+enum KeyBoardDismissType {
+    case None
+    case Register
+}
+
 class YLToolBarView: UIView,UITextViewDelegate {
 
-    var moreview : YLMoreView?
+    let moreview = YLMoreView()
     let textView = UITextView()
     let topView = UIView()
     var keyboardHei: CGFloat = 0
+    ///标记键盘下落的方式。 采取的动画可能不同
+    var keyboarddismisstype : KeyBoardDismissType = .None
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = randColor(r: 243, g: 240, b: 241, a: 1.0)
@@ -26,6 +33,9 @@ class YLToolBarView: UIView,UITextViewDelegate {
     }
     
     func textViewFrameChange(noti:Notification) {
+        if self.keyboarddismisstype == .Register {
+            return
+        }
         log.debug(noti.userInfo)
         let frame = noti.userInfo?["UIKeyboardFrameEndUserInfoKey"] as! CGRect
         let duration = noti.userInfo?["UIKeyboardAnimationDurationUserInfoKey"] as! CGFloat
@@ -103,6 +113,11 @@ class YLToolBarView: UIView,UITextViewDelegate {
         return true
     }
     
+    func textViewDidEndEditing(_ textView: UITextView) {
+        self.keyboarddismisstype = .None
+        log.debug("end editing")
+    }
+    
     func textViewDidChange(_ textView: UITextView) {
         adjustTextView(textView: textView)
     }
@@ -152,18 +167,21 @@ class YLToolBarView: UIView,UITextViewDelegate {
     }
     
     func moreBtnClick(sender : UIButton) {
-        moreview = YLMoreView()
-        self.addSubview(moreview!)
-        moreview?.snp.makeConstraints({ (make) in
-            make.left.right.bottom.equalTo(0)
-            make.top.equalTo(self.topView.snp.bottom)
-        })
-        self.layoutIfNeeded()
+//        moreview = YLMoreView()
+        self.keyboarddismisstype = .Register
         self.textView.resignFirstResponder()
+        if !self.subviews.contains(moreview) {
+            self.addSubview(moreview)
+            moreview.snp.makeConstraints({ (make) in
+                make.left.right.bottom.equalTo(0)
+                make.top.equalTo(self.topView.snp.bottom)
+            })
+            self.layoutIfNeeded()
+        }
         let topFrame = topView.frame;
         UIView.animate(withDuration: 0.25) {
             self.snp.updateConstraints({ (make) in
-                make.height.equalTo(200 + topFrame.size.height)
+                make.height.equalTo(240 + topFrame.size.height)
             })
             self.superview?.layoutIfNeeded()
         }

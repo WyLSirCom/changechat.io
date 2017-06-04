@@ -109,10 +109,37 @@ public extension UIImage {
 
 // MARK: - NSString 的分类
 public extension NSString {
+    
+    
+    /// 字符串的尺寸
+    ///
+    /// - Parameters:
+    ///   - font: 字体信息
+    ///   - maxSize: 最大的尺寸（宽或高总是有边界的）
+    /// - Returns: 实际的尺寸
     func sizeWithFont(font : UIFont , maxSize : CGSize) -> CGSize {
         let attrs = [NSFontAttributeName : font]
         return self.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: attrs, context: nil).size
-        
+    }
+}
+
+
+// MARK: - String 的分类
+public extension String {
+    
+    /// 十六进制的编码转为emoji字符
+    ///
+    /// - Returns: 转为字符的字符串
+    func emojiStr() -> String {
+        //1.在一段字符串中查找十六进制的字符串
+        let scanner = Scanner(string: self)
+        //2.将查找的字符串转换为十六进制的数字
+        var value : UInt32 = 0
+        scanner.scanHexInt32(&value)
+        //3.将十六进制的数字转化为 unicode字符
+        let charcode = Character(UnicodeScalar(value)!)
+        //4.将uniconde字符转换 字符串
+        return "\(charcode)"
     }
 }
 

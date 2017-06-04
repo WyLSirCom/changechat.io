@@ -41,6 +41,7 @@
 		DF7255E11EE1635000A61503 /* NormalImage.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF7255DF1EE1635000A61503 /* NormalImage.plist */; };
 		DF7255E21EE1635000A61503 /* SystemEmoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF7255E01EE1635000A61503 /* SystemEmoji.plist */; };
 		DF7255E41EE1640000A61503 /* YLEmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7255E31EE1640000A61503 /* YLEmojiView.swift */; };
+		DF7255E61EE2F7EF00A61503 /* YLEmojiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7255E51EE2F7EF00A61503 /* YLEmojiModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		DF7255DF1EE1635000A61503 /* NormalImage.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NormalImage.plist; sourceTree = "<group>"; };
 		DF7255E01EE1635000A61503 /* SystemEmoji.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SystemEmoji.plist; sourceTree = "<group>"; };
 		DF7255E31EE1640000A61503 /* YLEmojiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLEmojiView.swift; sourceTree = "<group>"; };
+		DF7255E51EE2F7EF00A61503 /* YLEmojiModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLEmojiModel.swift; sourceTree = "<group>"; };
 		ED66AFE036C38CE5FD83E610 /* Pods_ChangChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChangChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -457,6 +459,7 @@
 				DF7255DB1EDFD50700A61503 /* YLToolBarView.swift */,
 				DF7255DD1EDFF44800A61503 /* YLMoreView.swift */,
 				DF7255E31EE1640000A61503 /* YLEmojiView.swift */,
+				DF7255E51EE2F7EF00A61503 /* YLEmojiModel.swift */,
 			);
 			path = toolbar;
 			sourceTree = "<group>";
@@ -782,6 +785,7 @@
 				394685891ED4092F0037CF2E /* YLNavigationController.swift in Sources */,
 				394685991ED40C880037CF2E /* YLContactViewController.swift in Sources */,
 				394685871ED409160037CF2E /* YLTabBarViewController.swift in Sources */,
+				DF7255E61EE2F7EF00A61503 /* YLEmojiModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
