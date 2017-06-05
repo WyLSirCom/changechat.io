@@ -35,9 +35,17 @@ class YLEmojiView: UIView ,UICollectionViewDelegate,UICollectionViewDataSource{
     }
     
     func loadUI() {
+        let toolv = toolview(strings: ["kiss","open","kiss1","open1","kiss2","open2","kiss3","open3","kiss4","open4","kiss5","open5"])
+        self.addSubview(toolv)
+        toolv.snp.makeConstraints { (make) in
+            make.left.bottom.right.equalTo(0)
+            make.height.equalTo(44)
+        }
+        
         self.addSubview(collectionView)
         collectionView.snp.makeConstraints { (make) in
-            make.edges.equalTo(self)
+            make.top.left.right.equalTo(0)
+            make.bottom.equalTo(toolv.snp.top).offset(0)
         }
     }
     
@@ -70,6 +78,7 @@ class YLEmojiView: UIView ,UICollectionViewDelegate,UICollectionViewDataSource{
 }
 
 
+// MARK: /// YLEmojiCollectionLayout
 class YLEmojiCollectionLayout: UICollectionViewFlowLayout {
     override init() {
         super.init()
@@ -85,6 +94,8 @@ class YLEmojiCollectionLayout: UICollectionViewFlowLayout {
     }
 }
 
+
+// MARK: /// YLEmojiCollectionCell
 class YLEmojiCollectionCell:UICollectionViewCell {
     
     var emojibtn = UIButton()
@@ -108,4 +119,51 @@ class YLEmojiCollectionCell:UICollectionViewCell {
     func setEmojiImage(emojicodeStr : String) {
         emojibtn.setTitle(emojicodeStr, for: .normal)
     }
+}
+
+class toolview: UIView {
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//    }
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+
+    convenience init(strings:[String]) {
+        self.init()
+        let scrollview = UIScrollView()
+        scrollview.backgroundColor = .blue
+        
+        self.addSubview(scrollview)
+        scrollview.snp.makeConstraints { (make) in
+            make.edges.equalTo(self)
+        }
+        
+        for string in strings{
+            let btn = UIButton()
+            btn.backgroundColor = .red
+            btn.setTitle(string, for: .normal)
+            scrollview.addSubview(btn)
+            if string == strings.last {
+                btn.snp.makeConstraints({ (make) in
+                    make.left.equalTo(60 * strings.index(of: string)! + 10)
+                    make.top.equalTo(scrollview).offset(2)
+                    make.bottom.equalTo(-2)
+                    make.width.equalTo(50)
+                    make.right.equalTo(0)
+                })
+            } else {
+                btn.snp.makeConstraints({ (make) in
+                    make.left.equalTo(60 * strings.index(of: string)! + 10)
+                    make.top.equalTo(scrollview).offset(2)
+                    make.bottom.equalTo(-2)
+                    make.width.equalTo(50)
+                })
+            }
+        }
+        
+    }
+    
+    
 }
