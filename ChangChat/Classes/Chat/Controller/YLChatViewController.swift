@@ -21,8 +21,8 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
         tb.delegate = self
         tb.dataSource = self
         tb.register(YLMessageTableViewCell.self, forCellReuseIdentifier: messageCell)
-        tb.rowHeight = UITableViewAutomaticDimension
         tb.estimatedRowHeight = 100
+        tb.rowHeight = UITableViewAutomaticDimension
         return tb
     }()
     
@@ -35,6 +35,7 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.titleLabel?.text = "聊天"
+        
         loadUI()
         
         //测试
@@ -97,6 +98,7 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
         let frame = datas[indexPath.row]
         return frame.cellHeight!
     }
+    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //        self.view.endEditing(true)

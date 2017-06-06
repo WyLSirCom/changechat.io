@@ -21,8 +21,8 @@ class YLChatListViewController: YLViewController, UITableViewDataSource, UITable
         tb.dataSource = self
         tb.register(YLChatDetailTableViewCell.self, forCellReuseIdentifier: chatDetailCell)
         tb.register(YLChatDetailSearchTableViewCell.self, forCellReuseIdentifier: chatDetailSearchCell)
-        tb.rowHeight = UITableViewAutomaticDimension
-        tb.estimatedRowHeight = 100
+//        tb.estimatedRowHeight = 66
+//        tb.rowHeight = UITableViewAutomaticDimension
         return tb
     }()
     
@@ -60,20 +60,35 @@ class YLChatListViewController: YLViewController, UITableViewDataSource, UITable
         return row;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: chatDetailCell, for: indexPath)
+        var cell : UITableViewCell
         
         switch indexPath.section {
         case 0:
             cell = tableView.dequeueReusableCell(withIdentifier: chatDetailSearchCell, for: indexPath) as! YLChatDetailSearchTableViewCell
         case 1:
+            cell = tableView.dequeueReusableCell(withIdentifier: chatDetailCell, for: indexPath)
             return cell
         default:
+            cell = tableView.dequeueReusableCell(withIdentifier: chatDetailCell, for: indexPath)
             return cell
         }
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var height : CGFloat = 0
+        switch indexPath.section {
+        case 0:
+            height = 40
+        case 1:
+            height = 66
+        default:
+            return 0
+        }
+        return height;
+    }
+
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         //实现最上面的cell显示与隐藏
         let point = scrollView.contentOffset
@@ -87,6 +102,7 @@ class YLChatListViewController: YLViewController, UITableViewDataSource, UITable
         }
     }
 
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chatvc = YLChatViewController()
         chatvc.hidesBottomBarWhenPushed = true

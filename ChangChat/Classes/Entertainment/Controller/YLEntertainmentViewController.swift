@@ -29,7 +29,7 @@ class YLEntertainmentViewController: YLViewController,UITableViewDelegate,UITabl
         super.viewDidLoad()
 
         self.titleLabel?.text = "娱乐"
-        loadUI()
+//        loadUI()
     }
     
     func loadUI() {

@@ -17,6 +17,7 @@ class YLChatDetailTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.contentView.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleHeight.rawValue | UIViewAutoresizing.flexibleWidth.rawValue)
         loadUI()
     }
     
@@ -31,10 +32,12 @@ class YLChatDetailTableViewCell: UITableViewCell {
         headerImageView?.image = #imageLiteral(resourceName: "tiger")
         self.contentView.addSubview(headerImageView!)
         headerImageView?.snp.makeConstraints({ (make) in
-            make.top.equalTo(8)
+            make.top.equalTo(self.contentView).offset(8)
+            make.height.equalTo(50)
+//            make.height.lessThanOrEqualTo(50)
+            make.width.equalTo(50)
             make.left.equalTo(10)
-            make.bottom.equalTo(-8)
-            make.height.width.equalTo(50)
+//            make.bottom.equalTo(self.contentView).offset(-8)
         })
         headerImageView?.layer.cornerRadius = 25.0
         headerImageView?.layer.masksToBounds = true
@@ -65,6 +68,7 @@ class YLChatDetailTableViewCell: UITableViewCell {
             make.right.equalTo(-10)
             make.top.equalTo(5)
         })
+        
     }
 
 }
@@ -82,7 +86,7 @@ class YLChatDetailSearchTableViewCell: UITableViewCell {
     }
     
     func loadUI() {
-        //qq的搜索更可能是一个按钮
+        //qq的搜索更可能是一个按钮，以后改
         let textField = UITextField()
         textField.backgroundColor = randColor(r: 238, g: 239, b: 243, a: 1.0)
         let style  = NSMutableParagraphStyle()
@@ -91,7 +95,10 @@ class YLChatDetailSearchTableViewCell: UITableViewCell {
         textField.attributedPlaceholder = attri
         self.contentView.addSubview(textField)
         textField.snp.makeConstraints { (make) in
-            make.edges.equalTo(UIEdgeInsetsMake(5, 5, 5, 5))
+            make.left.equalTo(5)
+            make.right.equalTo(-5)
+            make.top.equalTo(5)
+//            make.bottom.equalTo(-5)
             make.height.equalTo(30)
         }
     }
