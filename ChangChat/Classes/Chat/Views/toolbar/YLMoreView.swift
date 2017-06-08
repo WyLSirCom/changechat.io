@@ -10,6 +10,9 @@ import UIKit
 
 class YLMoreView: UIView {
 
+    //回调事件
+    var moreviewClick : ((_ emoji : String) -> Void)?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .red
@@ -22,10 +25,15 @@ class YLMoreView: UIView {
     
     func loadUI() {
         let emojiView = YLEmojiView()
+        emojiView.emojiclick = emojiClick
         self.addSubview(emojiView)
         emojiView.snp.makeConstraints { (make) in
             make.edges.equalTo(self)
         }
+    }
+    
+    func emojiClick(title : String) -> Void {
+        moreviewClick!(title)
     }
 
 }

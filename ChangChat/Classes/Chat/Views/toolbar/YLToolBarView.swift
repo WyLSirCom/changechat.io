@@ -42,9 +42,10 @@ class YLToolBarView: UIView,UITextViewDelegate {
         
         let topFrame = topView.frame;
         log.debug(topFrame)
+        let hei = frame.origin.y
+        self.keyboardHei = ScreenHeight - hei
+        log.debug("height  \(ScreenHeight - hei + topFrame.size.height)")
         UIView.animate(withDuration: TimeInterval(duration)) {
-            let hei = frame.origin.y
-            self.keyboardHei = ScreenHeight - hei
             self.snp.updateConstraints { (make) in
                 make.height.equalTo(ScreenHeight - hei + topFrame.size.height)
             }
@@ -167,25 +168,44 @@ class YLToolBarView: UIView,UITextViewDelegate {
     }
     
     func moreBtnClick(sender : UIButton) {
-//        moreview = YLMoreView()
-        self.keyboarddismisstype = .Register
-        self.textView.resignFirstResponder()
-        if !self.subviews.contains(moreview) {
-            self.addSubview(moreview)
-            moreview.snp.makeConstraints({ (make) in
-                make.left.right.bottom.equalTo(0)
-                make.top.equalTo(self.topView.snp.bottom)
-            })
-            self.layoutIfNeeded()
-        }
-        let topFrame = topView.frame;
-        UIView.animate(withDuration: 0.25) {
-            self.snp.updateConstraints({ (make) in
-                make.height.equalTo(240 + topFrame.size.height)
-            })
-            self.superview?.layoutIfNeeded()
-        }
         
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected {
+            self.keyboarddismisstype = .Register
+            self.textView.resignFirstResponder()
+            if !self.subviews.contains(moreview) {
+                moreview.moreviewClick = emojiClick
+                self.addSubview(moreview)
+                moreview.snp.makeConstraints({ (make) in
+                    make.left.right.bottom.equalTo(0)
+                    make.top.equalTo(self.topView.snp.bottom)
+                })
+                self.layoutIfNeeded()
+            }
+            let topFrame = topView.frame;
+            UIView.animate(withDuration: 0.25) {
+                
+//                let hei = frame.origin.y
+//                self.keyboardHei = ScreenHeight - hei
+                self.snp.updateConstraints({ (make) in
+                    make.height.equalTo(240 + topFrame.size.height)
+                })
+                self.keyboardHei = 240
+                self.superview?.layoutIfNeeded()
+            }
+        } else {
+            self.keyboarddismisstype = .None
+            textView.becomeFirstResponder()
+        }
+    }
+    
+    //moreView 回调事件
+    func emojiClick(title : String) {
+        log.debug("titel : \(title)")
+        var text = textView.text
+        text?.append(title)
+        textView.text = text
+        textViewDidChange(textView)
     }
 
 }

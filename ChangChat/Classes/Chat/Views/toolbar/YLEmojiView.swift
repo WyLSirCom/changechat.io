@@ -11,8 +11,10 @@ import UIKit
 let emojiCell = "emojiCell"
 class YLEmojiView: UIView ,UICollectionViewDelegate,UICollectionViewDataSource{
 
-    var datas = Array<YLEmojiModel>()
+    //回调函数
+    var emojiclick : ((_ tit : String) -> Void)?
     
+    var datas = Array<YLEmojiModel>()
     lazy var collectionView : UICollectionView = {
         () -> UICollectionView in
         let layout = YLEmojiCollectionLayout()
@@ -20,12 +22,14 @@ class YLEmojiView: UIView ,UICollectionViewDelegate,UICollectionViewDataSource{
         cv.register(YLEmojiCollectionCell.self, forCellWithReuseIdentifier: emojiCell)
         cv.delegate = self
         cv.dataSource = self
+        cv.isPagingEnabled = true
         cv.backgroundColor = .clear
         return cv
         }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = UIColor.lightGray
         loadUI()
         loadEmoji()
     }
@@ -44,8 +48,9 @@ class YLEmojiView: UIView ,UICollectionViewDelegate,UICollectionViewDataSource{
         
         self.addSubview(collectionView)
         collectionView.snp.makeConstraints { (make) in
-            make.top.left.right.equalTo(0)
-            make.bottom.equalTo(toolv.snp.top).offset(0)
+            make.left.right.equalTo(0)
+            make.top.equalTo(10)
+            make.bottom.equalTo(toolv.snp.top).offset(-15)
         }
     }
     
@@ -53,9 +58,17 @@ class YLEmojiView: UIView ,UICollectionViewDelegate,UICollectionViewDataSource{
         let arr = YLEmojiModel.emoji()
         datas = datas + arr
         for key in arr {
+            if arr.index(of: key)! != 0 && (arr.index(of: key)! + 1) % 24 == 0 {
+                let dic = ["code":"删","type":"0"]
+                let emoModel = YLEmojiModel(dic: dic)
+                datas.insert(emoModel, at: arr.index(of: key)!)
+            }
             log.debug("info \(key.code!.emojiStr())")
             
         }
+        let dic = ["code":"删","type":"0"]
+        let emoModel = YLEmojiModel(dic: dic)
+        datas.append(emoModel)
     }
 
     
@@ -71,8 +84,23 @@ class YLEmojiView: UIView ,UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: emojiCell, for: indexPath) as! YLEmojiCollectionCell
         let model = datas[indexPath.item]
-        cell.setEmojiImage(emojicodeStr: model.code!.emojiStr())
+        if model.type == "0" {
+            cell.setEmojiImage(emojicodeStr: model.code!)
+        } else {
+            cell.setEmojiImage(emojicodeStr: model.code!.emojiStr())
+        }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let emojiModel = datas[indexPath.item];
+        if emojiclick != nil {
+            emojiclick!((emojiModel.code?.emojiStr())!)
+        }
+    }
+    
+    deinit {
+        log.debug("ylemojiview 释放")
     }
     
 }
@@ -83,8 +111,8 @@ class YLEmojiCollectionLayout: UICollectionViewFlowLayout {
     override init() {
         super.init()
         self.scrollDirection = .horizontal
-        self.itemSize = CGSize(width: 40, height: 40)
-        self.sectionInset = UIEdgeInsetsMake(2, 2, 2, 2)
+        self.itemSize = CGSize(width: 50, height: 50)
+        self.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         self.minimumLineSpacing = 2
         self.minimumInteritemSpacing = 2
     }
@@ -111,6 +139,8 @@ class YLEmojiCollectionCell:UICollectionViewCell {
     
     func loadUI() {
         self.contentView.addSubview(emojibtn)
+        emojibtn.isEnabled = false
+        emojibtn.setTitleColor(.black, for: .normal)
         emojibtn.snp.makeConstraints { (make) in
             make.edges.equalTo(self.contentView)
         }
@@ -219,5 +249,8 @@ class toolview: UIView {
         }
     }
     
+    deinit {
+        log.debug("toolview 释放")
+    }
     
 }

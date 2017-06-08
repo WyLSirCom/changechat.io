@@ -101,7 +101,7 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
     
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        self.view.endEditing(true)
+        self.view.endEditing(true)
     }
     
 }
