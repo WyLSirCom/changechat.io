@@ -174,7 +174,14 @@ class YLToolBarView: UIView,UITextViewDelegate {
             self.keyboarddismisstype = .Register
             self.textView.resignFirstResponder()
             if !self.subviews.contains(moreview) {
-                moreview.moreviewClick = emojiClick
+                moreview.moreviewClick = {
+                    [weak self] (title) in
+                    log.debug("titel : \(title)")
+                    var text = self?.textView.text
+                    text?.append(title)
+                    self?.textView.text = text
+                    self?.textViewDidChange((self?.textView)!)
+                }
                 self.addSubview(moreview)
                 moreview.snp.makeConstraints({ (make) in
                     make.left.right.bottom.equalTo(0)
@@ -184,9 +191,6 @@ class YLToolBarView: UIView,UITextViewDelegate {
             }
             let topFrame = topView.frame;
             UIView.animate(withDuration: 0.25) {
-                
-//                let hei = frame.origin.y
-//                self.keyboardHei = ScreenHeight - hei
                 self.snp.updateConstraints({ (make) in
                     make.height.equalTo(240 + topFrame.size.height)
                 })
@@ -200,12 +204,12 @@ class YLToolBarView: UIView,UITextViewDelegate {
     }
     
     //moreView 回调事件
-    func emojiClick(title : String) {
-        log.debug("titel : \(title)")
-        var text = textView.text
-        text?.append(title)
-        textView.text = text
-        textViewDidChange(textView)
-    }
+//    func emojiClick(title : String) {
+//        log.debug("titel : \(title)")
+//        var text = textView.text
+//        text?.append(title)
+//        textView.text = text
+//        textViewDidChange(textView)
+//    }
 
 }

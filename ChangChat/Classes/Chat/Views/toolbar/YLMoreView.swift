@@ -25,15 +25,14 @@ class YLMoreView: UIView {
     
     func loadUI() {
         let emojiView = YLEmojiView()
-        emojiView.emojiclick = emojiClick
+        emojiView.emojiclick = {
+            [weak self] (title) in
+            self?.moreviewClick!(title)
+        }
+        
         self.addSubview(emojiView)
         emojiView.snp.makeConstraints { (make) in
             make.edges.equalTo(self)
         }
     }
-    
-    func emojiClick(title : String) -> Void {
-        moreviewClick!(title)
-    }
-
 }

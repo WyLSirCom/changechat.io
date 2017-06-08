@@ -11,8 +11,10 @@ import UIKit
 let emojiCell = "emojiCell"
 class YLEmojiView: UIView ,UICollectionViewDelegate,UICollectionViewDataSource{
 
-    //回调函数
-    var emojiclick : ((_ tit : String) -> Void)?
+    public func emojiclick(_ closure: (_ title: String) -> Void) {
+    }
+    //回调函数 (_ closure: (_ make: ConstraintMaker) -> Void)
+    var emojiclick : ((_ title : String) -> Void)?
     
     var datas = Array<YLEmojiModel>()
     lazy var collectionView : UICollectionView = {
