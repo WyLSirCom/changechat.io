@@ -13,6 +13,10 @@ enum KeyBoardDismissType {
     case Register
 }
 
+@objc protocol ToolBarDelegate : NSObjectProtocol {//系统也是继承的 NSObjectProtocol
+    @objc optional func didClickReturn(text : String, barView : YLToolBarView, textView : UITextView)
+}
+
 class YLToolBarView: UIView,UITextViewDelegate {
 
     var moreview : YLMoreView?
@@ -21,6 +25,7 @@ class YLToolBarView: UIView,UITextViewDelegate {
     var keyboardHei: CGFloat = 0
     var moreViewRegister : Bool = false
     var tempBtn : UIButton?
+    weak var delegate : ToolBarDelegate?
     ///标记键盘下落的方式。 采取的动画可能不同
     var keyboarddismisstype : KeyBoardDismissType = .None
     override init(frame: CGRect) {
@@ -119,6 +124,7 @@ class YLToolBarView: UIView,UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         log.debug(text)
         if text == "\n" {
+            delegate?.didClickReturn!(text: textView.text, barView: self, textView: textView)
             return false
         }
         return true

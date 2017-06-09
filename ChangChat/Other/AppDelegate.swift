@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupTabbar()
         
         //loginViewController
-//        login()
+        login()
         return true
     }
     

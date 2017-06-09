@@ -8,6 +8,7 @@
 
 import UIKit
 import Spring
+import HyphenateLite
 
 class YLLoginViewController: YLViewController {
     
@@ -117,8 +118,11 @@ class YLLoginViewController: YLViewController {
     
     func loginBtnClick(sender : SpringButton) {
         log.debug("login success")
-        self .dismiss(animated: true) { 
-            
+        let error = EMClient.shared().login(withUsername: userTextFiled?.textFiled?.text, password: passwordTextFiled?.textFiled?.text)
+        if error == nil {
+            log.debug("登陆成功")
+            self.view.endEditing(true)
+            self.dismiss(animated: true, completion: nil)
         }
     }
 

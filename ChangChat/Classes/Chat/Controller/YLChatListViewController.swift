@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import HyphenateLite
 
 let chatDetailCell = "chatDetailCell"
 let chatDetailSearchCell = "chatDetailSearchCell"
@@ -107,6 +107,10 @@ class YLChatListViewController: YLViewController, UITableViewDataSource, UITable
         let chatvc = YLChatViewController()
         chatvc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(chatvc, animated: true)
+        
+        let conversations = EMClient.shared().chatManager .getConversation("8082", type: EMConversationTypeChat, createIfNotExist: true)
+        log.debug("conversation \(String(describing: conversations))")
+        
     }
 }
 
