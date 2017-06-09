@@ -99,9 +99,10 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
         return frame.cellHeight!
     }
     
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         self.view.endEditing(true)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: YLTABLEVIEWSCROLLNOTIFATION), object: nil)
+    
     }
     
 }

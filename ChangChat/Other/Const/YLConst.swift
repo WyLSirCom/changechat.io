@@ -21,6 +21,7 @@ func randColor(r:CGFloat,g:CGFloat,b:CGFloat,a:CGFloat) -> UIColor {
     return UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: a)
 }
 
+// 动画
 func transition(type : String, subtype : String, view : UIView) {
     let transition = CATransition()
     transition.duration = 0.5
@@ -29,3 +30,5 @@ func transition(type : String, subtype : String, view : UIView) {
     view.layer.add(transition, forKey: nil)
     
 }
+
+

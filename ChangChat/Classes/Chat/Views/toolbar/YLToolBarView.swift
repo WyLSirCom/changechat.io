@@ -15,16 +15,19 @@ enum KeyBoardDismissType {
 
 class YLToolBarView: UIView,UITextViewDelegate {
 
-    let moreview = YLMoreView()
+    var moreview : YLMoreView?
     let textView = UITextView()
     let topView = UIView()
     var keyboardHei: CGFloat = 0
+    var moreViewRegister : Bool = false
+    var tempBtn : UIButton?
     ///标记键盘下落的方式。 采取的动画可能不同
     var keyboarddismisstype : KeyBoardDismissType = .None
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = randColor(r: 243, g: 240, b: 241, a: 1.0)
         NotificationCenter.default.addObserver(self, selector: #selector(textViewFrameChange(noti:)), name: .UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(tableViewScroll(noti:)), name: NSNotification.Name(rawValue: YLTABLEVIEWSCROLLNOTIFATION), object: nil)
         loadUI()
     }
     
@@ -53,6 +56,12 @@ class YLToolBarView: UIView,UITextViewDelegate {
         }
     }
     
+    func tableViewScroll(noti : Notification) {
+        tempBtn?.isSelected = false
+//        adjustMoreview(appear: false)
+        moreViewDismiss()
+    }
+    
     func loadUI() {
         
         self.addSubview(self.topView)
@@ -72,7 +81,8 @@ class YLToolBarView: UIView,UITextViewDelegate {
         }
         
         let moreBtn = UIButton()
-        moreBtn.backgroundColor = .red
+        moreBtn.setBackgroundImage(UIImage.creatImageWithColor(color: .red), for: .normal)
+        moreBtn.setBackgroundImage(UIImage.creatImageWithColor(color: .blue), for: .selected)
         self.topView.addSubview(moreBtn)
         moreBtn.snp.makeConstraints { (make) in
             make.right.equalTo(-10)
@@ -168,13 +178,19 @@ class YLToolBarView: UIView,UITextViewDelegate {
     }
     
     func moreBtnClick(sender : UIButton) {
-        
+        tempBtn = sender
         sender.isSelected = !sender.isSelected
-        if sender.isSelected {
+        adjustMoreview(appear: sender.isSelected)
+    }
+    
+    func adjustMoreview(appear : Bool) {
+        if appear {
             self.keyboarddismisstype = .Register
             self.textView.resignFirstResponder()
-            if !self.subviews.contains(moreview) {
-                moreview.moreviewClick = {
+            if moreview == nil {
+                moreview = YLMoreView()
+                self.keyboarddismisstype = .None
+                moreview?.moreviewClick = {
                     [weak self] (title) in
                     log.debug("titel : \(title)")
                     var text = self?.textView.text
@@ -182,8 +198,8 @@ class YLToolBarView: UIView,UITextViewDelegate {
                     self?.textView.text = text
                     self?.textViewDidChange((self?.textView)!)
                 }
-                self.addSubview(moreview)
-                moreview.snp.makeConstraints({ (make) in
+                self.addSubview(moreview!)
+                moreview?.snp.makeConstraints({ (make) in
                     make.left.right.bottom.equalTo(0)
                     make.top.equalTo(self.topView.snp.bottom)
                 })
@@ -203,13 +219,14 @@ class YLToolBarView: UIView,UITextViewDelegate {
         }
     }
     
-    //moreView 回调事件
-//    func emojiClick(title : String) {
-//        log.debug("titel : \(title)")
-//        var text = textView.text
-//        text?.append(title)
-//        textView.text = text
-//        textViewDidChange(textView)
-//    }
+    func moreViewDismiss() {
+        let topFrame = topView.frame;
+        UIView.animate(withDuration: TimeInterval(0.25)) {
+            self.snp.updateConstraints { (make) in
+                make.height.equalTo(topFrame.size.height)
+            }
+            self.superview?.layoutIfNeeded()
+        }
+    }
 
 }
