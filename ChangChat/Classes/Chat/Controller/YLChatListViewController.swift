@@ -108,8 +108,8 @@ class YLChatListViewController: YLViewController, UITableViewDataSource, UITable
         chatvc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(chatvc, animated: true)
         
-        let conversations = EMClient.shared().chatManager .getConversation("8082", type: EMConversationTypeChat, createIfNotExist: true)
-        log.debug("conversation \(String(describing: conversations))")
+        let messageManager = YLMessageManager.share
+        messageManager.creatConversation()
         
     }
 }

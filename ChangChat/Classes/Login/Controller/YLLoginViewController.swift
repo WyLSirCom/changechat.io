@@ -32,6 +32,7 @@ class YLLoginViewController: YLViewController {
     func loadUI() {
         userTextFiled = YLLoginTextField()
         userTextFiled?.setplaceholder(placeholder: "用户名")
+        userTextFiled?.textFiled?.text = "8080"
         self.view.addSubview(userTextFiled!)
         userTextFiled!.snp.makeConstraints { (make) in
             make.top.equalTo(self.view).offset(100)
@@ -44,6 +45,7 @@ class YLLoginViewController: YLViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.milliseconds(500)) {
             self.passwordTextFiled = YLLoginTextField()
             self.passwordTextFiled?.setplaceholder(placeholder: "密  码")
+            self.passwordTextFiled?.textFiled?.text = "123456"
             self.view.addSubview(self.passwordTextFiled!)
             self.passwordTextFiled!.snp.makeConstraints { (make) in
                 make.top.equalTo(self.userTextFiled!.snp.bottom).offset(25)

@@ -8,11 +8,20 @@
 
 import UIKit
 import HyphenateLite
-class YLMessageManager: NSObject,EMChatManagerDelegate {
+class YLMessageManager: NSObject,EMClientDelegate {
     
-    override init() {
+    static let share = YLMessageManager.init()
+    
+    private override init() {
         super.init()
-        EMClient.shared().add(self as! EMClientDelegate, delegateQueue: nil)
+        EMClient.shared().removeDelegate(self)
+        EMClient.shared().add(self, delegateQueue: DispatchQueue.main)
+    }
+    
+    func creatConversation(userName : String ,successHand:(_ conversationId : String)->Void) {
+        let conversations = EMClient.shared().chatManager.getConversation(userName, type: EMConversationTypeChat, createIfNotExist: true)
+        log.debug("conversation \(String(describing: conversations?.conversationId))")
+        successHand((conversations?.conversationId)!);
     }
     
     func ConstructorText(text: String) {
@@ -27,9 +36,6 @@ class YLMessageManager: NSObject,EMChatManagerDelegate {
         }
     }
     
-    func messagesDidReceive(_ aMessages: [Any]!) {
-        
-    }
     
     func creatMessage(text: String) -> YLMessageFrame {
         ConstructorText(text: text)//发送文字消息
@@ -44,5 +50,8 @@ class YLMessageManager: NSObject,EMChatManagerDelegate {
     }
     
     
-
+// MARK: EMClientDelegate
+    func messagesDidReceive(_ aMessages: [Any]!) {
+        
+    }
 }

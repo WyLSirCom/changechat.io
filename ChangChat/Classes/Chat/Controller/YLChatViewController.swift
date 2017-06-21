@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import HyphenateLite
 
 
 let messageCell = "messageCell"
 
-class YLChatViewController: YLViewController, UITableViewDataSource, UITableViewDelegate, ToolBarDelegate {
+class YLChatViewController: YLViewController, UITableViewDataSource, UITableViewDelegate, ToolBarDelegate{
     
     //懒加载格式
     //lazy var 变量: 类型 = { 创建变量代码(相当于闭包) }()
@@ -32,14 +33,14 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
     }()
     let chatView = YLToolBarView()//输入框的view
     
-    let messageManager = YLMessageManager()
+    let messageManager = YLMessageManager.share
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.titleLabel?.text = "聊天"
         
-        loadUI()
         
+        loadUI()
         //测试
         for _ in 0 ... 10 {
             testMessage()
@@ -115,14 +116,14 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
     
 
 
-    func didClickReturn(text: String, barView: YLToolBarView, textView: UITextView) {
-        log.debug("text \(text)")
-        sendMessage(text: text)
-        textView.text = ""
-    }
+//    func didClickReturn(text: String, barView: YLToolBarView, textView: UITextView) {
+//        log.debug("text \(text)")
+//        sendMessage(text: text)
+//        textView.text = ""
+//    }
     
-    func sendMessage(text : String) {
-        let frameModel = messageManager.creatMessage(text: text)
-    }
+//    func sendMessage(text : String) {
+//        let frameModel = messageManager.creatMessage(text: text)
+//    }
     
 }
