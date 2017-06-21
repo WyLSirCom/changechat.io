@@ -9,9 +9,9 @@
 import UIKit
 import HyphenateLite
 
+
 let chatDetailCell = "chatDetailCell"
 let chatDetailSearchCell = "chatDetailSearchCell"
-
 class YLChatListViewController: YLViewController, UITableViewDataSource, UITableViewDelegate {
 
     lazy var tableView :UITableView = {
@@ -108,8 +108,8 @@ class YLChatListViewController: YLViewController, UITableViewDataSource, UITable
         chatvc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(chatvc, animated: true)
         
-        let messageManager = YLMessageManager.share
-        messageManager.creatConversation()
+//        let messageManager = YLMessageManager.share
+//        messageManager.creatConversation()
         
     }
 }

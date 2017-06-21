@@ -12,7 +12,7 @@ import HyphenateLite
 
 let messageCell = "messageCell"
 
-class YLChatViewController: YLViewController, UITableViewDataSource, UITableViewDelegate, ToolBarDelegate{
+class YLChatViewController: YLViewController, UITableViewDataSource, UITableViewDelegate, ToolBarDelegate, YLMessageManagerDelegate{
     
     //懒加载格式
     //lazy var 变量: 类型 = { 创建变量代码(相当于闭包) }()
@@ -38,18 +38,15 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.titleLabel?.text = "聊天"
-        
+        messageManager.delegate = self
         
         loadUI()
-        //测试
-        for _ in 0 ... 10 {
-            testMessage()
-        }
         tableView.reloadData()
         //完成
     }
     
     deinit {
+        messageManager.delegate = nil;
         log.debug("chatView 释放")
     }
     
@@ -73,12 +70,12 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
     
     //测试
     
-    func testMessage() {
+    func CreatMessageModel(text : String, time : String) {
         let message = YLMessageModel()
-        message.contentText = "hadja啊大煞风景卡回到家客服回答时间开始凤凰健康阿富汗将卡的恢复健康后hh"
+        message.contentText = text
         message.from = .Other
         message.ishiddenTimelabel = false
-        message.time = "12345879"
+        message.time = time
         
         let frame = YLMessageFrame()
         frame.message = message
@@ -114,16 +111,27 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
     
     // MARK: ToolBarDelegate
     
-
-
-//    func didClickReturn(text: String, barView: YLToolBarView, textView: UITextView) {
-//        log.debug("text \(text)")
-//        sendMessage(text: text)
-//        textView.text = ""
-//    }
+    func didClickReturn(text: String, barView: YLToolBarView, textView: UITextView) {
+        log.debug("text \(text)")
+        sendMessage(text: text)
+        textView.text = ""
+    }
     
-//    func sendMessage(text : String) {
-//        let frameModel = messageManager.creatMessage(text: text)
-//    }
+    func sendMessage(text : String) {
+        let frameModel = messageManager.creatMessage(text: text)
+        messageManager.ConstructorText(text: text)
+        datas.append(frameModel)
+        tableView.reloadData()
+    }
+    
+    // MARK: 接到消息
+    func messageManagerDidReceiveMessage(message: Array<Any>) {
+        for model in message {
+            let mm = model as! EMMessage
+            let textBody : EMTextMessageBody = mm.body as! EMTextMessageBody
+            CreatMessageModel(text: textBody.text, time: "\(mm.timestamp)")
+        }
+        tableView.reloadData()
+    }
     
 }

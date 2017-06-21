@@ -963,6 +963,7 @@
 					"$(PROJECT_DIR)/ChangChat/SDK/HyphenateSDK",
 				);
 				INFOPLIST_FILE = ChangChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ndmooc.ChangChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -982,6 +983,7 @@
 					"$(PROJECT_DIR)/ChangChat/SDK/HyphenateSDK",
 				);
 				INFOPLIST_FILE = ChangChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ndmooc.ChangChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";

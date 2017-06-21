@@ -8,19 +8,27 @@
 
 import UIKit
 import HyphenateLite
-class YLMessageManager: NSObject,EMClientDelegate {
+
+@objc public protocol YLMessageManagerDelegate :NSObjectProtocol {
+    @objc optional func messageManagerDidReceiveMessage(message : Array<Any>)
+}
+
+class YLMessageManager: NSObject,EMChatManagerDelegate {
     
     static let share = YLMessageManager.init()
-    
+    var conversationID : String? = nil
+    weak var delegate : YLMessageManagerDelegate?
     private override init() {
         super.init()
-        EMClient.shared().removeDelegate(self)
-        EMClient.shared().add(self, delegateQueue: DispatchQueue.main)
+        EMClient.shared().chatManager.remove(self)
+        EMClient.shared().chatManager.add(self, delegateQueue: DispatchQueue.main)
+        
     }
     
     func creatConversation(userName : String ,successHand:(_ conversationId : String)->Void) {
         let conversations = EMClient.shared().chatManager.getConversation(userName, type: EMConversationTypeChat, createIfNotExist: true)
-        log.debug("conversation \(String(describing: conversations?.conversationId))")
+        self.conversationID = conversations?.conversationId;
+//        log.debug("conversation \(String(describing: conversations?.conversationId))")
         successHand((conversations?.conversationId)!);
     }
     
@@ -28,7 +36,7 @@ class YLMessageManager: NSObject,EMClientDelegate {
         let body = EMTextMessageBody(text: text)
         let from = EMClient.shared().currentUsername
         
-        let message = EMMessage(conversationID: "6001", from: from, to: "6001", body: body, ext: nil)
+        let message = EMMessage(conversationID: self.conversationID, from: from, to: "6001", body: body, ext: nil)
         message?.chatType = EMChatTypeChat
         
         EMClient.shared().chatManager.send(message, progress: nil) { (message, error) in
@@ -53,5 +61,13 @@ class YLMessageManager: NSObject,EMClientDelegate {
 // MARK: EMClientDelegate
     func messagesDidReceive(_ aMessages: [Any]!) {
         
+        //合理的处理方式，如果处在当前会话，更新消息列表，否则存进数据库
+        log.debug("收到消息 \(aMessages)")
+        if (self.delegate != nil) {
+            delegate?.messageManagerDidReceiveMessage!(message: aMessages)
+        }
+    }
+    func cmdMessagesDidReceive(_ aCmdMessages: [Any]!) {
+        log.debug("收到CMD消息 \(aCmdMessages)")
     }
 }
