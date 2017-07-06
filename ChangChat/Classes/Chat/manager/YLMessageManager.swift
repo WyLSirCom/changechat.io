@@ -36,7 +36,7 @@ class YLMessageManager: NSObject,EMChatManagerDelegate {
         let body = EMTextMessageBody(text: text)
         let from = EMClient.shared().currentUsername
         
-        let message = EMMessage(conversationID: self.conversationID, from: from, to: "6001", body: body, ext: nil)
+        let message = EMMessage(conversationID: self.conversationID, from: from, to: conversationID, body: body, ext: nil)
         message?.chatType = EMChatTypeChat
         
         EMClient.shared().chatManager.send(message, progress: nil) { (message, error) in

@@ -119,7 +119,6 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
     
     func sendMessage(text : String) {
         let frameModel = messageManager.creatMessage(text: text)
-        messageManager.ConstructorText(text: text)
         datas.append(frameModel)
         tableView.reloadData()
     }
