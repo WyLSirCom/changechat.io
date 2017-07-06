@@ -143,3 +143,20 @@ public extension String {
     }
 }
 
+
+// MARK: - Date的分类
+public extension Date {
+    
+    /// 时间戳转字符串
+    ///
+    /// - Parameter timestamp: 时间戳
+    /// - Returns: 结果字符串
+    func convertString(timestamp : String) -> String {
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = Date(timeIntervalSince1970: Double(timestamp)!)
+        let string = format.string(from: date)
+        return string
+    }
+    
+}

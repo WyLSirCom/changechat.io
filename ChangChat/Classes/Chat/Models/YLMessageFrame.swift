@@ -29,8 +29,8 @@ class YLMessageFrame: NSObject {
             
             //头像
             let iconY : CGFloat = (timeF?.maxY)!
-            let iconW : CGFloat = 52
-            let iconH : CGFloat = 52
+            let iconW : CGFloat = 50
+            let iconH : CGFloat = 50
             let iconX : CGFloat;
             if mess?.from == .Me {
                 iconX = ScreenWidth - padding - iconW
@@ -40,10 +40,10 @@ class YLMessageFrame: NSObject {
             iconF = CGRect(x: iconX, y: iconY, width: iconW, height: iconH)
             
             //正文
-            let textY = iconY
+            let textY = iconY+5
             let textMaxSize = CGSize(width:CGFloat(200.0) , height:CGFloat(MAXFLOAT))
             let text = NSString(string: (mess?.contentText)!)
-            let textRealSize = text.sizeWithFont(font: UIFont.systemFont(ofSize: 15), maxSize: textMaxSize)
+            let textRealSize = text.sizeWithFont(font: UIFont.systemFont(ofSize: 20), maxSize: textMaxSize)
             let textBtnSize = CGSize(width: textRealSize.width + 20, height: textRealSize.height + 20)
             let textX : CGFloat
             if mess?.from == .Me {

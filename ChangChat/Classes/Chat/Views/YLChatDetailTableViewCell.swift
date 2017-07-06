@@ -34,10 +34,8 @@ class YLChatDetailTableViewCell: UITableViewCell {
         headerImageView?.snp.makeConstraints({ (make) in
             make.top.equalTo(self.contentView).offset(8)
             make.height.equalTo(50)
-//            make.height.lessThanOrEqualTo(50)
             make.width.equalTo(50)
             make.left.equalTo(10)
-//            make.bottom.equalTo(self.contentView).offset(-8)
         })
         headerImageView?.layer.cornerRadius = 25.0
         headerImageView?.layer.masksToBounds = true

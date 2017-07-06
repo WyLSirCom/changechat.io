@@ -70,14 +70,14 @@ class YLToolBarView: UIView,UITextViewDelegate {
     func loadUI() {
         
         self.addSubview(self.topView)
-        self.topView.backgroundColor = .orange
+        self.topView.backgroundColor = UIColor.init(colorLiteralRed: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 1.0)
         topView.snp.makeConstraints { (make) in
             make.left.top.right.equalTo(0)
             make.height.equalTo(54)
         }
         
         let talkBtn = UIButton()
-        talkBtn.backgroundColor = .red
+        talkBtn.setBackgroundImage(UIImage.init(named: "toolbar_say"), for: .normal)
         self.topView.addSubview(talkBtn)
         talkBtn.snp.makeConstraints { (make) in
             make.left.equalTo(10)
@@ -86,8 +86,7 @@ class YLToolBarView: UIView,UITextViewDelegate {
         }
         
         let moreBtn = UIButton()
-        moreBtn.setBackgroundImage(UIImage.creatImageWithColor(color: .red), for: .normal)
-        moreBtn.setBackgroundImage(UIImage.creatImageWithColor(color: .blue), for: .selected)
+        moreBtn.setBackgroundImage(UIImage.init(named: "toolbar_add"), for: .normal)
         self.topView.addSubview(moreBtn)
         moreBtn.snp.makeConstraints { (make) in
             make.right.equalTo(-10)
@@ -97,7 +96,7 @@ class YLToolBarView: UIView,UITextViewDelegate {
         moreBtn.addTarget(self, action: #selector(moreBtnClick(sender:)), for: .touchUpInside)
         
         let emojiBtn = UIButton()
-        emojiBtn.backgroundColor = .red
+        emojiBtn.setBackgroundImage(UIImage.init(named: "toolbar_emoji"), for: .normal)
         self.topView.addSubview(emojiBtn)
         emojiBtn.snp.makeConstraints { (make) in
             make.right.equalTo(moreBtn.snp.left).offset(-10)
@@ -125,6 +124,10 @@ class YLToolBarView: UIView,UITextViewDelegate {
         log.debug(text)
         if text == "\n" {
             delegate?.didClickReturn!(text: textView.text, barView: self, textView: textView)
+            textView.text = "";
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: { 
+                self.adjustTextView(textView: textView)
+            })
             return false
         }
         return true
@@ -180,13 +183,12 @@ class YLToolBarView: UIView,UITextViewDelegate {
     
     //右侧两个按钮的事件
     func emojiBtnClick(sender : UIButton) {
-        
-    }
-    
-    func moreBtnClick(sender : UIButton) {
         tempBtn = sender
         sender.isSelected = !sender.isSelected
         adjustMoreview(appear: sender.isSelected)
+    }
+    
+    func moreBtnClick(sender : UIButton) {
     }
     
     func adjustMoreview(appear : Bool) {

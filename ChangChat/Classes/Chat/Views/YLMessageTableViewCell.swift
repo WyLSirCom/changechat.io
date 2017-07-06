@@ -20,17 +20,23 @@ class YLMessageTableViewCell: UITableViewCell {
             let mess = messFrame?.message
             
             //时间
-            timelabel?.text = mess?.time
+            timelabel?.text = Date().convertString(timestamp: (mess?.time)!)
             timelabel?.frame = (messFrame?.timeF)!
             
             //头像
             headerImageBtn?.setImage(#imageLiteral(resourceName: "tiger"), for: .normal)
             headerImageBtn?.frame = (messFrame?.iconF)!
+            headerImageBtn?.layer.cornerRadius = (messFrame?.iconF)!.size.height/2
+            headerImageBtn?.layer.masksToBounds = true
             
             //正文
             contentTextBtn?.setTitle(mess?.contentText, for: .normal)
             contentTextBtn?.frame = (messFrame?.textF)!
-            
+            if mess?.from == .Me {
+                contentTextBtn?.setBackgroundImage(self.resizeableImage(name: "chat_green"), for: .normal)
+            } else {
+                contentTextBtn?.setBackgroundImage(self.resizeableImage(name: "chat_white"), for: .normal)
+            }
         }
     }
     
@@ -47,7 +53,7 @@ class YLMessageTableViewCell: UITableViewCell {
     func loadUI() {
         //时间
         timelabel = UILabel()
-        timelabel?.backgroundColor = .orange
+//        timelabel?.backgroundColor = .orange
         timelabel?.textAlignment = .center
         self.contentView.addSubview(timelabel!)
         
@@ -59,10 +65,19 @@ class YLMessageTableViewCell: UITableViewCell {
         //正文
         contentTextBtn = UIButton()
         contentTextBtn?.titleLabel?.numberOfLines = 0
-        contentTextBtn?.backgroundColor = .blue
-        contentTextBtn?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        contentTextBtn?.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         contentTextBtn?.contentEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
+        contentTextBtn?.setTitleColor(.black, for: .normal)
         self.contentView.addSubview(contentTextBtn!)
+        
+    }
+    
+    func resizeableImage(name:String) -> UIImage {
+        let image = UIImage.init(named: name)
+        let h = (image?.size.height)! * 0.5;
+        let w = (image?.size.width)! * 0.5;
+        let resizeimage = image?.resizableImage(withCapInsets: UIEdgeInsetsMake(h+5, w, h-5, w), resizingMode: .stretch)
+        return resizeimage!
         
     }
     

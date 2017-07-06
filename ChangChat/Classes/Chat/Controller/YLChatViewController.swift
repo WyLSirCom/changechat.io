@@ -24,6 +24,7 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
         tb.register(YLMessageTableViewCell.self, forCellReuseIdentifier: messageCell)
         tb.estimatedRowHeight = 100
         tb.rowHeight = UITableViewAutomaticDimension
+        tb.separatorStyle = .none
         return tb
     }()
     
@@ -114,7 +115,6 @@ class YLChatViewController: YLViewController, UITableViewDataSource, UITableView
     func didClickReturn(text: String, barView: YLToolBarView, textView: UITextView) {
         log.debug("text \(text)")
         sendMessage(text: text)
-        textView.text = ""
     }
     
     func sendMessage(text : String) {
